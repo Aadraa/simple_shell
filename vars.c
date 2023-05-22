@@ -3,7 +3,7 @@
 
 
 /**
- * is_chain– Run if current character in buffer is a chain delimeter
+ * is_chain- Run if current character in buffer is a chain delimeter
  * @info: Structure parameter
  * @buf: Buffer character
  * @p: Buf current position address
@@ -156,7 +156,7 @@ int replace_vars(info_t *info)
 
 
 /**
- * replace_string– String is replaced
+ * replace_string- String is replaced
  * @old: Old string address
  * @new: String is new
  *

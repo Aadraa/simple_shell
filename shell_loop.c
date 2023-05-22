@@ -1,9 +1,8 @@
 #include "shell.h"
 
 
-
 /**
- * hsh– Shell main loop
+ * hsh- Shell main loop
  * @info: Return info structure and parameter
  * @av: Argument vector from main()
  *
@@ -56,7 +55,7 @@ int hsh(info_t *info, char **av)
 
 
 /**
- * find_builtin– Search for a builtin command
+ * find_builtin- Search for a builtin command
  * @info: Return info structure and parameter
  *
  * Return: -1 If builtin not found,
@@ -102,7 +101,7 @@ int find_builtin(info_t *info)
 
 
 /**
- * find_cmd– Search for a command in PATH
+ * find_cmd- Search for a command in PATH
  * @info: Return info structure and parameter
  *
  * Return: 0(Success)

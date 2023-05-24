@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _myenv - prints the current environment
- * @info: potential arguments contains stru. Used to maintain
+ * _myenv - Current environment to be printed
+ * @info: The potential arguments that contains struture Used to maintain
  *          constant function prototype.
- * Return: 0 always
+ * Return: 0 always (Success)
  */
 int _myenv(info_t *info)
 {
@@ -13,15 +13,16 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - gets the value of an environ variable
- * @info: potential arguments contains stru. Used to maintain
+ * _getenv - Gets the value of an environ variable
+ * @info: The potential arguments that contains struture Used to maintain
  * @name: env var name
  *
- * Return: the value
+ * Return: Value name
  */
 char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
+
 	char *p;
 
 	while (node)
@@ -37,9 +38,9 @@ char *_getenv(info_t *info, const char *name)
 /**
  * _mysetenv - Modify an existing environment or
  *             initiliaze a new exiting variable
- * @info: potential arguments contains stru. Used to maintain
+ * @info: The potential arguments that contains struture Used to maintain
  *        constant function prototype.
- *  Return: 0 always
+ *  Return: 0 always (Success)
  */
 int _mysetenv(info_t *info)
 {
@@ -55,38 +56,39 @@ int _mysetenv(info_t *info)
 
 /**
  * _myunsetenv - Remove an environment variable
- * @info: potential arguments contains stru. Used to maintain
+ * @info: The potential arguments that contains struture Used to maintain
  *        constant function prototype.
- * Return: 0 always
+ * Return: 0 always (Success)
  */
 int _myunsetenv(info_t *info)
 {
-	int i;
+	int u;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+	for (u = 1; u <= info->argc; u++)
+		_unsetenv(info, info->argv[u]);
 
 	return (0);
 }
 
 /**
- * populate_env_list - populates env linked list
- * @info: potential arguments contains stru. Used to maintain
+ * populate_env_list - The populates environment linked list
+ * @info: potential arguments that contains struture Used to maintain
  *          constant function prototype.
- * Return: 0 always
+ * Return: 0 always (Success)
  */
 int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
-	size_t i;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
+	size_t u;
+
+	for (u = 0; environ[u]; u++)
+		add_node_end(&node, environ[u], 0);
 	info->env = node;
 	return (0);
 }

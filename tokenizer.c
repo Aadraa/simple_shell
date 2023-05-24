@@ -46,8 +46,8 @@ char **strtow(char *str, char *d)
 			return (NULL);
 		}
 		for (t = 0; t < k; t++)
-			s[o][m] = str[m++];
-		s[o][m] = 0;
+			s[o][t] = str[m++];
+		s[o][t] = 0;
 	}
 	s[o] = NULL;
 	return (s);

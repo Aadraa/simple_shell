@@ -13,30 +13,30 @@
 
 int is_chain(info_t *info, char *buf, size_t *p)
 {
-	size_t j = *p;
+	size_t k = *p;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	if (buf[k] == '|' && buf[k + 1] == '|')
 	{
-		buf[j] = 0;
+		buf[k] = 0;
 
-		j++;
+		k++;
 
 		info->cmd_buf_type = CMD_OR;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+	else if (buf[k] == '&' && buf[k + 1] == '&')
 	{
-		buf[j] = 0;
-		j++;
+		buf[k] = 0;
+		k++;
 		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+	else if (buf[k] == ';') /* found end of this command */
 	{
-		buf[j] = 0; /* replace semicolon with null */
+		buf[k] = 0; /* replace semicolon with null */
 		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
 	return (0);
-	*p = j;
+	*p = k;
 	return (1);
 }
 
@@ -55,14 +55,14 @@ int is_chain(info_t *info, char *buf, size_t *p)
 
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-	size_t j = *p;
+	size_t k = *p;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			k = len;
 		}
 
 	}
@@ -71,10 +71,10 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			k = len;
 		}
 	}
-	*p = j;
+	*p = k;
 }
 
 

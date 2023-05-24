@@ -2,7 +2,7 @@
 
 
 /**
- * main– Point of entry
+ * main- Point of entry
  * @ac: Arg count
  * @av: Arg vector
  *

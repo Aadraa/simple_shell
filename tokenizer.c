@@ -1,5 +1,4 @@
 #include "shell.h"
-i
 
 /**
  * **strtow- Words are spilt into strings. Repeat delimiters are ignored
